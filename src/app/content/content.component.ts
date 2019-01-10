@@ -1,5 +1,5 @@
 import { Product } from './../models/product';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class ContentComponent implements OnInit {
   readonly QUANTITY = 'Cantidad';
   readonly PRICE = 'Precio';
 
+  @ViewChild('myModal') myModal;
+
   public products: Product[];
 
   constructor(private productService: ProductService) { }
@@ -25,6 +27,15 @@ export class ContentComponent implements OnInit {
     this.productService.getProducts().subscribe(data => {
       this.products = data.products;
     });
+  }
+
+  viewProduct(product: Product) {
+    const setAlert = 'true';
+    this.productService.setviewProduct(product);
+    this.productService.setviewAlert(setAlert);
+    localStorage.setItem('Product', JSON.stringify(product));
+    console.log('Set item');
+
   }
 
 }

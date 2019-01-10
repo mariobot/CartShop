@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { ContentComponent } from './content/content.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
    declarations: [
@@ -17,7 +18,8 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
       HeaderComponent,
       BodyComponent,
       ContentComponent,
-      DetailProductComponent
+      DetailProductComponent,
+      ModalComponent
    ],
    imports: [
       BrowserModule,
